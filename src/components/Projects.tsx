@@ -25,6 +25,7 @@ const projects = [
 
 export const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [hasEntered, setHasEntered] = useState(false);
 
   const prev = () => setCurrentIndex(c => (c === 0 ? projects.length - 1 : c - 1));
   const next = () => setCurrentIndex(c => (c === projects.length - 1 ? 0 : c + 1));
@@ -46,7 +47,13 @@ export const Projects = () => {
         </motion.div>
 
         {/* Carousel Container */}
-        <div className="relative flex justify-center items-center min-h-[500px] w-full mt-10">
+        <motion.div 
+          className="relative flex justify-center items-center min-h-[500px] w-full mt-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          onViewportEnter={() => setTimeout(() => setHasEntered(true), 1000)}
+        >
           
           <div className="flex justify-center items-center gap-4 md:gap-8 w-full max-w-[1200px]">
             {[-1, 0, 1].map((offset) => {
@@ -58,14 +65,27 @@ export const Projects = () => {
                 <motion.div
                   key={project.title}
                   layout
-                  initial={false}
+                  initial={{ opacity: 0, y: 50 }}
                   animate={{
                      scale: isActive ? 1 : 0.85,
                      opacity: isActive ? 1 : 0.3,
                      filter: isActive ? 'blur(0px)' : 'blur(4px)',
-                     zIndex: isActive ? 20 : 10
+                     zIndex: isActive ? 20 : 10,
+                     y: 0,
+                     borderColor: "rgba(255,255,255,0.05)",
+                     boxShadow: "0 0 0px rgba(59,130,246,0)"
                   }}
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  whileHover={isActive ? {
+                     borderColor: "rgba(59,130,246,0.4)",
+                     boxShadow: "0 0 40px rgba(59,130,246,0.2)"
+                  } : undefined}
+                  transition={{ 
+                     type: "spring", 
+                     stiffness: 300, 
+                     damping: 30,
+                     delay: hasEntered ? 0 : (offset + 1) * 0.2
+                  }}
+                  style={{ borderWidth: "1px", borderStyle: "solid" }}
                   className={`glass-panel group p-8 rounded-2xl flex-col justify-between h-[480px] md:h-[450px] relative overflow-hidden shrink-0 w-[85vw] md:w-[400px] ${!isActive ? 'hidden md:flex pointer-events-none' : 'flex'}`}
                 >
                   <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl -mr-10 -mt-10" />
@@ -118,7 +138,7 @@ export const Projects = () => {
             </button>
           </div>
           
-        </div>
+        </motion.div>
         
         {/* Mobile indicators */}
         <div className="flex md:hidden justify-center items-center gap-3 mt-6">
