@@ -1,0 +1,138 @@
+import { motion } from 'framer-motion'
+import { Award, ChevronLeft, ChevronRight } from 'lucide-react'
+import { useState } from 'react'
+
+const projects = [
+  {
+    title: 'SkinDoctor',
+    description: 'Plataforma de teledermatología fullstack con diagnóstico asistido por IA. Diseñó e implementó la arquitectura backend completa con Django y PostgreSQL. Construyó pipeline de vectorización con embeddings OpenAI y ChromaDB. Integró un motor RAG con LangChain y LangGraph; entrenó e integró una CNN con TensorFlow. Desarrolló la app móvil en React Native.',
+    tags: ['Django', 'React Native', 'LangChain', 'TensorFlow', 'PostgreSQL'],
+    badge: 'Premiado a nivel nacional'
+  },
+  {
+    title: 'Análisis Exploratorio de Datos',
+    description: 'Proyecto personal enfocado en el procesamiento de datasets públicos aplicando limpieza, transformación y visualización para extraer insights sobre distribuciones, correlaciones y tendencias. Documentación de los análisis en Jupyter Notebooks con conclusiones accionables.',
+    tags: ['Python', 'pandas', 'matplotlib', 'seaborn', 'Jupyter'],
+    badge: 'Proyecto Personal'
+  },
+  {
+    title: 'Investigación Blockchain',
+    description: 'Reporte técnico y de ingeniería de 200hs sobre implementaciones a nivel enterprise de Hyperledger Fabric y redes Ethereum. Explorando problemas de consenso, rendimiento y privacidad de transacciones en consorcios privados.',
+    tags: ['Hyperledger Fabric', 'Ethereum'],
+    badge: 'Research & Innovation'
+  }
+]
+
+export const Projects = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prev = () => setCurrentIndex(c => (c === 0 ? projects.length - 1 : c - 1));
+  const next = () => setCurrentIndex(c => (c === projects.length - 1 ? 0 : c + 1));
+
+  return (
+    <section className="py-24 px-6 bg-black/40 overflow-hidden" id="projects">
+      <div className="max-w-[1400px] mx-auto">
+        <motion.div
+           initial={{ opacity: 0, y: 20 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true, margin: "-100px" }}
+           className="mb-12 text-center md:text-left md:max-w-6xl md:mx-auto"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Proyectos Destacados</h2>
+          <p className="text-gray-400 max-w-2xl mx-auto md:mx-0">
+            Sistemas que resuelven problemas reales a través de ciencia de datos profunda, 
+            investigación sólida y código de calidad industrial.
+          </p>
+        </motion.div>
+
+        {/* Carousel Container */}
+        <div className="relative flex justify-center items-center min-h-[500px] w-full mt-10">
+          
+          <div className="flex justify-center items-center gap-4 md:gap-8 w-full max-w-[1200px]">
+            {[-1, 0, 1].map((offset) => {
+              const index = (currentIndex + offset + projects.length) % projects.length;
+              const project = projects[index];
+              const isActive = offset === 0;
+
+              return (
+                <motion.div
+                  key={project.title}
+                  layout
+                  initial={false}
+                  animate={{
+                     scale: isActive ? 1 : 0.85,
+                     opacity: isActive ? 1 : 0.3,
+                     filter: isActive ? 'blur(0px)' : 'blur(4px)',
+                     zIndex: isActive ? 20 : 10
+                  }}
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  className={`glass-panel group p-8 rounded-2xl flex-col justify-between h-[480px] md:h-[450px] relative overflow-hidden shrink-0 w-[85vw] md:w-[400px] ${!isActive ? 'hidden md:flex pointer-events-none' : 'flex'}`}
+                >
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl -mr-10 -mt-10" />
+                  
+                  <div>
+                    {project.badge && (
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold mb-6 border border-blue-500/20">
+                        <Award size={14} />
+                        {project.badge}
+                      </div>
+                    )}
+                    
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-4 transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-400 text-sm leading-relaxed mb-8">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  <div className="flex flex-col gap-6 mt-auto">
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map(tag => (
+                        <span key={tag} className="px-2.5 py-1 rounded-md bg-white/5 text-gray-300 text-xs border border-white/5">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Navigation Buttons perfectly aligned with the active card */}
+          <div className="absolute inset-0 flex items-center justify-between px-2 md:px-0 z-30 w-full max-w-[95vw] md:max-w-[480px] mx-auto pointer-events-none">
+            <button 
+              onClick={prev} 
+              className="pointer-events-auto p-3 rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-md text-white border border-white/20 transition-all hover:scale-110 shadow-lg -translate-x-2 md:-translate-x-12"
+              aria-label="Proyecto anterior"
+            >
+              <ChevronLeft size={28} />
+            </button>
+            <button 
+              onClick={next} 
+              className="pointer-events-auto p-3 rounded-full bg-black/50 hover:bg-black/80 backdrop-blur-md text-white border border-white/20 transition-all hover:scale-110 shadow-lg translate-x-2 md:translate-x-12"
+              aria-label="Siguiente proyecto"
+            >
+              <ChevronRight size={28} />
+            </button>
+          </div>
+          
+        </div>
+        
+        {/* Mobile indicators */}
+        <div className="flex md:hidden justify-center items-center gap-3 mt-6">
+          {projects.map((_, i) => (
+            <div
+              key={i}
+              className={`h-1.5 rounded-full transition-all duration-300 ${
+                currentIndex === i ? 'w-8 bg-blue-500' : 'w-4 bg-white/20'
+              }`}
+            />
+          ))}
+        </div>
+
+      </div>
+    </section>
+  )
+}
