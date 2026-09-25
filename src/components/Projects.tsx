@@ -10,6 +10,12 @@ const projects = [
     badge: 'Proyecto más reciente'
   },
   {
+    title: 'Análisis exploratorio de datos',
+    description: 'Desarrollé un análisis exploratorio de datos orientado a transformar un conjunto de datos en hallazgos accionables. Comencé con la limpieza, normalización y validación de la información; luego estudié la distribución de las variables, los valores atípicos, los datos faltantes y las relaciones entre dimensiones para detectar patrones y posibles sesgos. Complementé el trabajo con visualizaciones y una interpretación técnica de los resultados, construyendo una base sólida para futuras etapas de modelado y toma de decisiones basada en evidencia.',
+    tags: ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Data Analysis'],
+    badge: 'Data Science'
+  },
+  {
     title: 'SkinDoctor',
     description: 'Participé en la definición y evolución de una plataforma de teledermatología que conecta pacientes y profesionales a través de un backend Django, una aplicación móvil en React Native y PostgreSQL. Lideré decisiones de arquitectura, diseñé el modelo multi-tenant y establecí contratos de API consistentes entre los clientes. Además, impulsé la migración hacia service layers para desacoplar la lógica de negocio, mejorar la testabilidad y facilitar la incorporación de nuevas funcionalidades.',
     tags: ['Django', 'React Native', 'PostgreSQL', 'REST APIs'],
