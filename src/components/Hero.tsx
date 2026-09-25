@@ -146,13 +146,13 @@ export const Hero = () => {
       <CircuitBg />
 
       {/* ── Floating metrics ── */}
-      <Metric value="5+" label="Proyectos IA"   accent="text-cyan-400"   delay={0.6} className="left-[2%]  top-[22%]" />
-      <Metric value="3"  label="Tecnologías ML" accent="text-yellow-400" delay={0.7} className="left-[2%]  top-[38%]" />
-      <Metric value="2K+" label="hrs de código" accent="text-white"      delay={0.8} className="left-[2%]  bottom-[22%]" />
+      <Metric value="3" label="Sistemas clave" accent="text-cyan-400" delay={0.6} className="left-[2%] top-[22%]" />
+      <Metric value="200+" label="tests unitarios" accent="text-yellow-400" delay={0.7} className="left-[2%] top-[38%]" />
+      <Metric value="5+" label="integraciones API" accent="text-white" delay={0.8} className="left-[2%] bottom-[22%]" />
 
-      <Metric value="98%" label="Uptime APIs"     accent="text-cyan-400"   delay={0.6} className="right-[2%] top-[22%]" />
-      <Metric value="#1"  label="Premio Nacional" accent="text-yellow-400" delay={0.7} className="right-[2%] top-[38%]" />
-      <Metric value="UTN" label="FRT · Tucumán"   accent="text-white"      delay={0.8} className="right-[2%] bottom-[22%]" />
+      <Metric value="RLS" label="tenant isolation" accent="text-cyan-400" delay={0.6} className="right-[2%] top-[22%]" />
+      <Metric value="#2" label="Escobar Innova" accent="text-yellow-400" delay={0.7} className="right-[2%] top-[38%]" />
+      <Metric value="UTN" label="FRT · Tucumán" accent="text-white" delay={0.8} className="right-[2%] bottom-[22%]" />
 
       {/* AI chip */}
       <motion.div

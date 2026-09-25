@@ -4,21 +4,33 @@ import { useState } from 'react'
 
 const projects = [
   {
-    title: 'SkinDoctor',
-    description: 'Plataforma de teledermatología fullstack con diagnóstico asistido por IA. Diseñó e implementó la arquitectura backend completa con Django y PostgreSQL. Construyó pipeline de vectorización con embeddings OpenAI y ChromaDB. Integró un motor RAG con LangChain y LangGraph; entrenó e integró una CNN con TensorFlow. Desarrolló la app móvil en React Native.',
-    tags: ['Django', 'React Native', 'LangChain', 'TensorFlow', 'PostgreSQL'],
-    badge: 'Premiado a nivel nacional'
+    title: 'NS Trading',
+    description: 'Diseñé y desarrollé una plataforma multi-tenant para centralizar la operación de importaciones y dar trazabilidad a cada embarque. El sistema separa las experiencias de administradores, operadores y clientes, automatiza el cálculo del costo aterrizado a partir de múltiples variables y permite procesar documentación XLSX y PDF mediante OCR. También implementé la generación de cotizaciones profesionales en PDF y un modelo de aislamiento de datos con RLS para proteger la información entre organizaciones.',
+    tags: ['Next.js', 'TypeScript', 'Neon', 'PostgreSQL', 'RLS'],
+    badge: 'Proyecto más reciente'
   },
   {
-    title: 'Análisis Exploratorio de Datos',
-    description: 'Proyecto personal enfocado en el procesamiento de datasets públicos aplicando limpieza, transformación y visualización para extraer insights sobre distribuciones, correlaciones y tendencias. Documentación de los análisis en Jupyter Notebooks con conclusiones accionables.',
-    tags: ['Python', 'pandas', 'matplotlib', 'seaborn', 'Jupyter'],
-    badge: 'Proyecto Personal'
+    title: 'Análisis exploratorio de datos',
+    description: 'Desarrollé un análisis exploratorio de datos orientado a transformar un conjunto de datos en hallazgos accionables. Comencé con la limpieza, normalización y validación de la información; luego estudié la distribución de las variables, los valores atípicos, los datos faltantes y las relaciones entre dimensiones para detectar patrones y posibles sesgos. Complementé el trabajo con visualizaciones y una interpretación técnica de los resultados, construyendo una base sólida para futuras etapas de modelado y toma de decisiones basada en evidencia.',
+    tags: ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Data Analysis'],
+    badge: 'Data Science'
+  },
+  {
+    title: 'SkinDoctor',
+    description: 'Participé en la definición y evolución de una plataforma de teledermatología que conecta pacientes y profesionales a través de un backend Django, una aplicación móvil en React Native y PostgreSQL. Lideré decisiones de arquitectura, diseñé el modelo multi-tenant y establecí contratos de API consistentes entre los clientes. Además, impulsé la migración hacia service layers para desacoplar la lógica de negocio, mejorar la testabilidad y facilitar la incorporación de nuevas funcionalidades.',
+    tags: ['Django', 'React Native', 'PostgreSQL', 'REST APIs'],
+    badge: 'CONAIISI 2024 · Innovación'
+  },
+  {
+    title: 'Bot SDR',
+    description: 'Construí un sistema de automatización comercial orientado a reducir tareas manuales y mejorar la velocidad de respuesta del equipo de ventas. La solución se organizó en servicios desacoplados conectados mediante webhooks y APIs REST, con integraciones a más de cinco plataformas. Implementé estrategias de reintento, logging estructurado y alertas operativas para detectar fallos rápidamente y mantener la confiabilidad del flujo en producción, logrando una reducción del 40% en costos operativos.',
+    tags: ['Node.js', 'Webhooks', 'Microservices', 'Linux VPS'],
+    badge: '40% menos costos operativos'
   },
   {
     title: 'Investigación Blockchain',
-    description: 'Reporte técnico y de ingeniería de 200hs sobre implementaciones a nivel enterprise de Hyperledger Fabric y redes Ethereum. Explorando problemas de consenso, rendimiento y privacidad de transacciones en consorcios privados.',
-    tags: ['Hyperledger Fabric', 'Ethereum'],
+    description: 'Realicé una investigación técnica de 200 horas sobre implementaciones enterprise de Hyperledger Fabric y Ethereum para evaluar su aplicabilidad en entornos corporativos. Analicé mecanismos de consenso, rendimiento, gobierno de redes y privacidad de transacciones en consorcios privados, documentando diferencias arquitectónicas, límites operativos y criterios para seleccionar una tecnología blockchain según el caso de uso.',
+    tags: ['Hyperledger Fabric', 'Ethereum', 'Research'],
     badge: 'Research & Innovation'
   }
 ]
@@ -86,7 +98,7 @@ export const Projects = () => {
                      delay: hasEntered ? 0 : (offset + 1) * 0.2
                   }}
                   style={{ borderWidth: "1px", borderStyle: "solid" }}
-                  className={`glass-panel group p-8 rounded-2xl flex-col justify-between h-[480px] md:h-[450px] relative overflow-hidden shrink-0 w-[85vw] md:w-[400px] ${!isActive ? 'hidden md:flex pointer-events-none' : 'flex'}`}
+                  className={`glass-panel group p-8 rounded-2xl flex-col justify-between h-[560px] md:h-[520px] relative overflow-hidden shrink-0 w-[85vw] md:w-[400px] ${!isActive ? 'hidden md:flex pointer-events-none' : 'flex'}`}
                 >
                   <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl -mr-10 -mt-10" />
                   

@@ -5,7 +5,7 @@ const technologies = [
   {
     category: 'Backend',
     icon: <Server className="text-blue-400" size={24} />,
-    skills: ['Python (Django)', 'Java (Spring Boot)', 'C# (.NET)', 'APIs REST, MVC']
+    skills: ['Python / Django', 'Node.js / NestJS', 'C# / .NET', 'REST APIs · Webhooks']
   },
   {
     category: 'Frontend & Mobile',

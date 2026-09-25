@@ -21,7 +21,7 @@ function App() {
       {/* Navigation (Simple) */}
       <nav className="fixed top-0 w-full z-50 glass-panel border-x-0 border-t-0 border-b border-white/5 px-6 py-4">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <div className="font-bold text-white tracking-wider">MA<span className="text-blue-500">.</span></div>
+          <div className="font-bold text-white tracking-wider">MARCELO<span className="text-blue-500">.</span></div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
             <a href="#tech-stack" className="hover:text-white transition-colors">Stack</a>
             <a href="#projects" className="hover:text-white transition-colors">Proyectos</a>
