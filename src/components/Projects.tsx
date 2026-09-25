@@ -4,21 +4,27 @@ import { useState } from 'react'
 
 const projects = [
   {
-    title: 'SkinDoctor',
-    description: 'Plataforma de teledermatología fullstack con diagnóstico asistido por IA. Diseñó e implementó la arquitectura backend completa con Django y PostgreSQL. Construyó pipeline de vectorización con embeddings OpenAI y ChromaDB. Integró un motor RAG con LangChain y LangGraph; entrenó e integró una CNN con TensorFlow. Desarrolló la app móvil en React Native.',
-    tags: ['Django', 'React Native', 'LangChain', 'TensorFlow', 'PostgreSQL'],
-    badge: 'Premiado a nivel nacional'
+    title: 'NS Trading',
+    description: 'Plataforma multi-tenant para gestión de importaciones, con roles de admin, operador y cliente. Incluye cálculo de costo aterrizado, ingesta de XLSX/PDF con OCR, cotizaciones renderizadas en PDF y aislamiento de datos con RLS.',
+    tags: ['Next.js', 'TypeScript', 'Neon', 'PostgreSQL', 'RLS'],
+    badge: 'Proyecto más reciente'
   },
   {
-    title: 'Análisis Exploratorio de Datos',
-    description: 'Proyecto personal enfocado en el procesamiento de datasets públicos aplicando limpieza, transformación y visualización para extraer insights sobre distribuciones, correlaciones y tendencias. Documentación de los análisis en Jupyter Notebooks con conclusiones accionables.',
-    tags: ['Python', 'pandas', 'matplotlib', 'seaborn', 'Jupyter'],
-    badge: 'Proyecto Personal'
+    title: 'SkinDoctor',
+    description: 'Plataforma de teledermatología con backend Django, app React Native y PostgreSQL. Lideró decisiones de arquitectura, multi-tenancy, contratos de API y migración hacia service layers para mejorar la testabilidad.',
+    tags: ['Django', 'React Native', 'PostgreSQL', 'REST APIs'],
+    badge: 'CONAIISI 2024 · Innovación'
+  },
+  {
+    title: 'Bot SDR',
+    description: 'Sistema de automatización comercial compuesto por servicios desacoplados, webhooks y APIs REST. Orquestó integraciones con más de cinco plataformas, reintentos, logging estructurado y alertas en producción.',
+    tags: ['Node.js', 'Webhooks', 'Microservices', 'Linux VPS'],
+    badge: '40% menos costos operativos'
   },
   {
     title: 'Investigación Blockchain',
-    description: 'Reporte técnico y de ingeniería de 200hs sobre implementaciones a nivel enterprise de Hyperledger Fabric y redes Ethereum. Explorando problemas de consenso, rendimiento y privacidad de transacciones en consorcios privados.',
-    tags: ['Hyperledger Fabric', 'Ethereum'],
+    description: 'Investigación técnica de 200 horas sobre implementaciones enterprise de Hyperledger Fabric y Ethereum, con foco en consenso, rendimiento y privacidad de transacciones en consorcios privados.',
+    tags: ['Hyperledger Fabric', 'Ethereum', 'Research'],
     badge: 'Research & Innovation'
   }
 ]

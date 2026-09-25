@@ -11,7 +11,7 @@ export const Experience = () => {
         className="mb-16"
       >
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Experiencia & Logros</h2>
-        <p className="text-gray-400">Trayectoria académica y reconocimientos relevantes.</p>
+        <p className="text-gray-400">Arquitectura, producto y liderazgo técnico detrás de sistemas reales.</p>
       </motion.div>
 
       <div className="relative border-l border-white/10 ml-4 md:ml-6 space-y-12">
