@@ -5,25 +5,25 @@ import { useState } from 'react'
 const projects = [
   {
     title: 'NS Trading',
-    description: 'Plataforma multi-tenant para gestión de importaciones, con roles de admin, operador y cliente. Incluye cálculo de costo aterrizado, ingesta de XLSX/PDF con OCR, cotizaciones renderizadas en PDF y aislamiento de datos con RLS.',
+    description: 'Diseñé y desarrollé una plataforma multi-tenant para centralizar la operación de importaciones y dar trazabilidad a cada embarque. El sistema separa las experiencias de administradores, operadores y clientes, automatiza el cálculo del costo aterrizado a partir de múltiples variables y permite procesar documentación XLSX y PDF mediante OCR. También implementé la generación de cotizaciones profesionales en PDF y un modelo de aislamiento de datos con RLS para proteger la información entre organizaciones.',
     tags: ['Next.js', 'TypeScript', 'Neon', 'PostgreSQL', 'RLS'],
     badge: 'Proyecto más reciente'
   },
   {
     title: 'SkinDoctor',
-    description: 'Plataforma de teledermatología con backend Django, app React Native y PostgreSQL. Lideró decisiones de arquitectura, multi-tenancy, contratos de API y migración hacia service layers para mejorar la testabilidad.',
+    description: 'Participé en la definición y evolución de una plataforma de teledermatología que conecta pacientes y profesionales a través de un backend Django, una aplicación móvil en React Native y PostgreSQL. Lideré decisiones de arquitectura, diseñé el modelo multi-tenant y establecí contratos de API consistentes entre los clientes. Además, impulsé la migración hacia service layers para desacoplar la lógica de negocio, mejorar la testabilidad y facilitar la incorporación de nuevas funcionalidades.',
     tags: ['Django', 'React Native', 'PostgreSQL', 'REST APIs'],
     badge: 'CONAIISI 2024 · Innovación'
   },
   {
     title: 'Bot SDR',
-    description: 'Sistema de automatización comercial compuesto por servicios desacoplados, webhooks y APIs REST. Orquestó integraciones con más de cinco plataformas, reintentos, logging estructurado y alertas en producción.',
+    description: 'Construí un sistema de automatización comercial orientado a reducir tareas manuales y mejorar la velocidad de respuesta del equipo de ventas. La solución se organizó en servicios desacoplados conectados mediante webhooks y APIs REST, con integraciones a más de cinco plataformas. Implementé estrategias de reintento, logging estructurado y alertas operativas para detectar fallos rápidamente y mantener la confiabilidad del flujo en producción, logrando una reducción del 40% en costos operativos.',
     tags: ['Node.js', 'Webhooks', 'Microservices', 'Linux VPS'],
     badge: '40% menos costos operativos'
   },
   {
     title: 'Investigación Blockchain',
-    description: 'Investigación técnica de 200 horas sobre implementaciones enterprise de Hyperledger Fabric y Ethereum, con foco en consenso, rendimiento y privacidad de transacciones en consorcios privados.',
+    description: 'Realicé una investigación técnica de 200 horas sobre implementaciones enterprise de Hyperledger Fabric y Ethereum para evaluar su aplicabilidad en entornos corporativos. Analicé mecanismos de consenso, rendimiento, gobierno de redes y privacidad de transacciones en consorcios privados, documentando diferencias arquitectónicas, límites operativos y criterios para seleccionar una tecnología blockchain según el caso de uso.',
     tags: ['Hyperledger Fabric', 'Ethereum', 'Research'],
     badge: 'Research & Innovation'
   }
@@ -92,7 +92,7 @@ export const Projects = () => {
                      delay: hasEntered ? 0 : (offset + 1) * 0.2
                   }}
                   style={{ borderWidth: "1px", borderStyle: "solid" }}
-                  className={`glass-panel group p-8 rounded-2xl flex-col justify-between h-[480px] md:h-[450px] relative overflow-hidden shrink-0 w-[85vw] md:w-[400px] ${!isActive ? 'hidden md:flex pointer-events-none' : 'flex'}`}
+                  className={`glass-panel group p-8 rounded-2xl flex-col justify-between h-[560px] md:h-[520px] relative overflow-hidden shrink-0 w-[85vw] md:w-[400px] ${!isActive ? 'hidden md:flex pointer-events-none' : 'flex'}`}
                 >
                   <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl -mr-10 -mt-10" />
                   
