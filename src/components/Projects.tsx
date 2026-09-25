@@ -1,40 +1,35 @@
 import { motion } from 'framer-motion'
-import { Award, ArrowLeft, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react'
+import { Award, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useState } from 'react'
 
 const projects = [
   {
     title: 'NS Trading',
-    description: 'Plataforma multi-tenant para centralizar importaciones, documentación y costos por embarque.',
-    details: 'Diseñé y desarrollé una plataforma operativa para gestionar importaciones de punta a punta. Separé las experiencias de administradores, operadores y clientes, automaticé el cálculo del costo aterrizado con múltiples variables y agregué procesamiento de archivos XLSX y PDF mediante OCR. También implementé la generación de cotizaciones profesionales en PDF y un modelo de aislamiento de datos con RLS para proteger la información entre organizaciones.',
+    description: 'Diseñé y desarrollé una plataforma multi-tenant para centralizar la operación de importaciones y dar trazabilidad a cada embarque. El sistema separa las experiencias de administradores, operadores y clientes, automatiza el cálculo del costo aterrizado a partir de múltiples variables y permite procesar documentación XLSX y PDF mediante OCR. También implementé la generación de cotizaciones profesionales en PDF y un modelo de aislamiento de datos con RLS para proteger la información entre organizaciones.',
     tags: ['Next.js', 'TypeScript', 'Neon', 'PostgreSQL', 'RLS'],
     badge: 'Proyecto más reciente'
   },
   {
     title: 'Análisis exploratorio de datos',
-    description: 'Análisis exploratorio para convertir datos sin procesar en hallazgos accionables.',
-    details: 'Realicé la limpieza, normalización y validación del conjunto de datos antes de estudiar la distribución de variables, valores atípicos, datos faltantes y relaciones entre dimensiones. Complementé el análisis con visualizaciones y una interpretación técnica de los resultados para detectar patrones, sesgos y oportunidades. El trabajo dejó una base confiable para futuras etapas de modelado y toma de decisiones basada en evidencia.',
+    description: 'Desarrollé un análisis exploratorio de datos orientado a transformar un conjunto de datos en hallazgos accionables. Comencé con la limpieza, normalización y validación de la información; luego estudié la distribución de las variables, los valores atípicos, los datos faltantes y las relaciones entre dimensiones para detectar patrones y posibles sesgos. Complementé el trabajo con visualizaciones y una interpretación técnica de los resultados, construyendo una base sólida para futuras etapas de modelado y toma de decisiones basada en evidencia.',
     tags: ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Data Analysis'],
     badge: 'Data Science'
   },
   {
     title: 'SkinDoctor',
-    description: 'Plataforma de teledermatología que conecta pacientes y profesionales desde web y móvil.',
-    details: 'Participé en la definición y evolución de una plataforma de teledermatología con backend Django, aplicación móvil en React Native y PostgreSQL. Lideré decisiones de arquitectura, diseñé el modelo multi-tenant y establecí contratos de API consistentes entre clientes. También impulsé la migración hacia service layers para desacoplar la lógica de negocio, mejorar la testabilidad y facilitar nuevas funcionalidades.',
+    description: 'Participé en la definición y evolución de una plataforma de teledermatología que conecta pacientes y profesionales a través de un backend Django, una aplicación móvil en React Native y PostgreSQL. Lideré decisiones de arquitectura, diseñé el modelo multi-tenant y establecí contratos de API consistentes entre los clientes. Además, impulsé la migración hacia service layers para desacoplar la lógica de negocio, mejorar la testabilidad y facilitar la incorporación de nuevas funcionalidades.',
     tags: ['Django', 'React Native', 'PostgreSQL', 'REST APIs'],
     badge: 'CONAIISI 2024 · Innovación'
   },
   {
     title: 'Bot SDR',
-    description: 'Sistema de automatización comercial que redujo tareas manuales y costos operativos.',
-    details: 'Construí un flujo comercial compuesto por servicios desacoplados, webhooks y APIs REST, integrado con más de cinco plataformas. Implementé estrategias de reintento, logging estructurado y alertas operativas para detectar fallos y mantener la confiabilidad en producción. La solución permitió reducir un 40% los costos operativos y mejorar la velocidad de respuesta del equipo de ventas.',
+    description: 'Construí un sistema de automatización comercial orientado a reducir tareas manuales y mejorar la velocidad de respuesta del equipo de ventas. La solución se organizó en servicios desacoplados conectados mediante webhooks y APIs REST, con integraciones a más de cinco plataformas. Implementé estrategias de reintento, logging estructurado y alertas operativas para detectar fallos rápidamente y mantener la confiabilidad del flujo en producción, logrando una reducción del 40% en costos operativos.',
     tags: ['Node.js', 'Webhooks', 'Microservices', 'Linux VPS'],
     badge: '40% menos costos operativos'
   },
   {
     title: 'Investigación Blockchain',
-    description: 'Investigación técnica sobre blockchain enterprise y su aplicabilidad en entornos corporativos.',
-    details: 'Realicé una investigación de 200 horas sobre implementaciones enterprise de Hyperledger Fabric y Ethereum. Analicé mecanismos de consenso, rendimiento, gobierno de redes y privacidad de transacciones en consorcios privados. Documenté diferencias arquitectónicas, límites operativos y criterios para seleccionar la tecnología adecuada según cada caso de uso.',
+    description: 'Realicé una investigación técnica de 200 horas sobre implementaciones enterprise de Hyperledger Fabric y Ethereum para evaluar su aplicabilidad en entornos corporativos. Analicé mecanismos de consenso, rendimiento, gobierno de redes y privacidad de transacciones en consorcios privados, documentando diferencias arquitectónicas, límites operativos y criterios para seleccionar una tecnología blockchain según el caso de uso.',
     tags: ['Hyperledger Fabric', 'Ethereum', 'Research'],
     badge: 'Research & Innovation'
   }
@@ -43,7 +38,6 @@ const projects = [
 export const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [hasEntered, setHasEntered] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<typeof projects[number] | null>(null);
 
   const prev = () => setCurrentIndex(c => (c === 0 ? projects.length - 1 : c - 1));
   const next = () => setCurrentIndex(c => (c === projects.length - 1 ? 0 : c + 1));
@@ -122,14 +116,6 @@ export const Projects = () => {
                     <p className="text-gray-400 text-sm leading-relaxed mb-8">
                       {project.description}
                     </p>
-                    <button
-                      type="button"
-                      onClick={() => setSelectedProject(project)}
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors"
-                    >
-                      Ver proyecto en detalle
-                      <ExternalLink size={16} />
-                    </button>
                   </div>
 
                   <div className="flex flex-col gap-6 mt-auto">
@@ -166,39 +152,6 @@ export const Projects = () => {
           
         </motion.div>
         
-        {selectedProject && (
-          <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 p-6 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="project-detail-title">
-            <div className="glass-panel relative max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-white/10 p-6 md:p-10">
-              <button
-                type="button"
-                onClick={() => setSelectedProject(null)}
-                className="mb-8 inline-flex items-center gap-2 text-sm text-gray-400 transition-colors hover:text-white"
-                aria-label="Volver a proyectos"
-              >
-                <ArrowLeft size={16} />
-                Volver a proyectos
-              </button>
-              <div className="mb-5 inline-flex items-center gap-1.5 rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1 text-xs font-semibold text-blue-400">
-                <Award size={14} />
-                {selectedProject.badge}
-              </div>
-              <h3 id="project-detail-title" className="mb-5 text-2xl font-bold text-white md:text-3xl">
-                {selectedProject.title}
-              </h3>
-              <p className="mb-8 text-base leading-8 text-gray-300">
-                {selectedProject.details}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {selectedProject.tags.map(tag => (
-                  <span key={tag} className="rounded-md border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-gray-300">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-
         {/* Mobile indicators */}
         <div className="flex md:hidden justify-center items-center gap-3 mt-6">
           {projects.map((_, i) => (
@@ -215,3 +168,5 @@ export const Projects = () => {
     </section>
   )
 }
+
+
